@@ -19,49 +19,49 @@ export const CATEGORIES = [
     name: "Gravy Bases & Sauces",
     count: 15,
     tagline: "Rich, aromatic restaurant-style gravy bases and gourmet cooking sauces",
-    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80"
+    image: "/products/red-gravy-base.jpg"
   },
   {
     id: "indian-snack-marinates",
     name: "Indian Snack Marinates",
     count: 7,
     tagline: "Authentic spiced marinades for tikkas, grills, biryanis and roasts",
-    image: "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=800&q=80"
+    image: "/products/tandoori-marinate.jpg"
   },
   {
     id: "veg-pickles",
     name: "Veg Pickles",
     count: 7,
     tagline: "Traditional home-style pickles crafted with authentic recipes and spices",
-    image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80"
+    image: "/products/avakaya-mango-pickle.jpg"
   },
   {
     id: "non-veg-pickles",
     name: "Non-Veg Pickles",
     count: 10,
     tagline: "Delectable authentic Andhra & South Indian meat and seafood pickles",
-    image: "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80"
+    image: "/products/chicken-pickle.jpg"
   },
   {
     id: "karam-podi",
     name: "Karam Podi",
     count: 6,
     tagline: "Traditional spiced podi powders made with roasted lentils, spices and herbs",
-    image: "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=800&q=80"
+    image: "/products/karivepaku-karam-podi.jpg"
   },
   {
     id: "instant-foods-premixes",
     name: "Instant Foods & Premixes",
     count: 16,
     tagline: "Healthy millet meals, wholesome pongals, upmas, sweets and traditional premixes",
-    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80"
+    image: "/products/pesarattu-mix.jpg"
   },
   {
     id: "idli-dosa-batter-premix",
     name: "Idli/Dosa Batter & Premix",
     count: 14,
     tagline: "Freshly prepared natural and nutritious traditional fermented batters and mixes",
-    image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=800&q=80"
+    image: "/products/ragi-idli-batter.jpg"
   }
 ];
 
@@ -209,7 +209,7 @@ export const PRODUCTS = [
     name: "Grilled Marinate",
     categoryId: "indian-snack-marinates",
     categoryName: "Indian Snack Marinates",
-    image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80",
+    image: "/products/grilled-marinate.jpg",
     description: "Flavor-packed marinade blending smoky spices, lime juice, and herbs designed to seal in moisture and intense flavor on the grill.",
     isFeatured: false
   },
@@ -218,7 +218,7 @@ export const PRODUCTS = [
     name: "Tandoori Marinate",
     categoryId: "indian-snack-marinates",
     categoryName: "Indian Snack Marinates",
-    image: "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=800&q=80",
+    image: "/products/tandoori-marinate.jpg",
     description: "Authentic Punjabi tandoori paste crafted with hung curd, roasted mustard oil, degi mirch, and garam masala.",
     isFeatured: true
   },
@@ -227,7 +227,7 @@ export const PRODUCTS = [
     name: "Thecha Marinate",
     categoryId: "indian-snack-marinates",
     categoryName: "Indian Snack Marinates",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+    image: "/products/thecha-marinate.jpg",
     description: "Fiery Maharashtrian style marinate prepared from coarse hand-pounded green chilies, roasted garlic, and cumin.",
     isFeatured: false
   },
@@ -236,7 +236,7 @@ export const PRODUCTS = [
     name: "Tikka Marinate",
     categoryId: "indian-snack-marinates",
     categoryName: "Indian Snack Marinates",
-    image: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=800&q=80",
+    image: "/products/tikka-marinate.jpg",
     description: "Classic tikka marinade seasoned with aromatic spices, ginger-garlic paste, and lemon for paneer, soya, and meats.",
     isFeatured: false
   },
@@ -245,7 +245,7 @@ export const PRODUCTS = [
     name: "Achari Tikka Marinate",
     categoryId: "indian-snack-marinates",
     categoryName: "Indian Snack Marinates",
-    image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
+    image: "/products/achari-tikka-marinate.jpg",
     description: "Tangy pickle-spiced marinade combining mustard seeds, kalonji, saunf, and fenugreek for an unmistakable pickled barbecue flavor.",
     isFeatured: false
   },
@@ -254,7 +254,7 @@ export const PRODUCTS = [
     name: "Hyderabad Biryani Marinate",
     categoryId: "indian-snack-marinates",
     categoryName: "Indian Snack Marinates",
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80",
+    image: "/products/hyderabad-biryani-marinate.jpg",
     description: "Heritage Nizami marinade featuring fried onions (birista), mint, coriander, shahi jeera, and stone-ground spices.",
     isFeatured: true
   },
@@ -263,7 +263,7 @@ export const PRODUCTS = [
     name: "Zafrani Biryani Marinate",
     categoryId: "indian-snack-marinates",
     categoryName: "Indian Snack Marinates",
-    image: "https://images.unsplash.com/photo-1630409346824-4f0e7b080087?auto=format&fit=crop&w=800&q=80",
+    image: "/products/zafrani-biryani-marinate.jpg",
     description: "Luxurious royal marinade elevated with saffron threads, mace, nutmeg, and aromatic rose water.",
     isFeatured: false
   },

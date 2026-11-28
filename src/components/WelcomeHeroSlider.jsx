@@ -17,9 +17,8 @@ import { createWhatsAppUrl } from '../lib/whatsapp';
 
 export default function WelcomeHeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
 
-  // 4 curated showcase slides reflecting the authentic culinary range
+  // 4 curated showcase slides with authentic packaging images
   const slides = [
     {
       id: 1,
@@ -37,9 +36,9 @@ export default function WelcomeHeroSlider() {
       ],
       primaryBtn: { text: "Explore All Products", link: "/catalogue" },
       secondaryBtn: { text: "Direct WhatsApp Enquiry", isWhatsApp: true },
-      // Product jars / showcase reflecting Pic 7 layout
       products: [
         {
+          id: "avakaya-mango-pickle",
           name: "Avakaya Mango Pickle",
           category: "Veg Pickles",
           weight: "250g / 500g",
@@ -47,6 +46,7 @@ export default function WelcomeHeroSlider() {
           badge: "Bestseller"
         },
         {
+          id: "hyderabad-gravy-sauce",
           name: "Hyderabad Gravy Sauce",
           category: "Gravy Bases & Sauces",
           weight: "200g / 1kg",
@@ -73,6 +73,7 @@ export default function WelcomeHeroSlider() {
       secondaryBtn: { text: "Enquire via WhatsApp", isWhatsApp: true },
       products: [
         {
+          id: "gongura-pickle",
           name: "Gongura Pickle",
           category: "Veg Pickles",
           weight: "250g / 500g",
@@ -80,6 +81,7 @@ export default function WelcomeHeroSlider() {
           badge: "Traditional"
         },
         {
+          id: "karivepaku-karam-podi",
           name: "Karivepaku Karam Podi",
           category: "Karam Podi",
           weight: "100g / 250g",
@@ -106,6 +108,7 @@ export default function WelcomeHeroSlider() {
       secondaryBtn: { text: "Commercial Supply Enquiry", isWhatsApp: true },
       products: [
         {
+          id: "shahi-gravy-sauce",
           name: "Shahi Gravy Sauce",
           category: "Gravy Bases & Sauces",
           weight: "200g / 1kg",
@@ -113,6 +116,7 @@ export default function WelcomeHeroSlider() {
           badge: "Royal Rich"
         },
         {
+          id: "red-gravy-base",
           name: "Red Gravy Base",
           category: "Gravy Bases & Sauces",
           weight: "200g / 1kg",
@@ -139,6 +143,7 @@ export default function WelcomeHeroSlider() {
       secondaryBtn: { text: "Order Fresh Stock", isWhatsApp: true },
       products: [
         {
+          id: "ragi-idli-batter",
           name: "Ragi Idli Batter",
           category: "Idli/Dosa Batters",
           weight: "1 kg Pack",
@@ -146,24 +151,24 @@ export default function WelcomeHeroSlider() {
           badge: "Nutrient Rich"
         },
         {
+          id: "pesarattu-mix",
           name: "Pesarattu Premix",
           category: "Instant Premixes",
           weight: "500g Pack",
-          image: "/products/pesarattu.jpg",
+          image: "/products/pesarattu-mix.jpg",
           badge: "Crispy Delight"
         }
       ]
     }
   ];
 
-  // Auto-scroll slides horizontally every 4.5s (pauses on mouse hover)
+  // Auto-scroll slideshow continuously every 4.0s
   useEffect(() => {
-    if (isPaused) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 4500);
+    }, 4000);
     return () => clearInterval(timer);
-  }, [isPaused, slides.length]);
+  }, [slides.length]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -177,45 +182,49 @@ export default function WelcomeHeroSlider() {
   const BadgeIcon = activeSlide.badgeIcon;
 
   // Prepare full product list for dynamic marquees
-  const productNames = PRODUCTS.map(p => p.name);
-  // Reversed copy for opposite direction
-  const reversedNames = [...productNames].reverse();
+  const topProducts = PRODUCTS;
+  const bottomProducts = [...PRODUCTS].reverse();
 
   return (
-    <div className="w-full space-y-4">
+    <div className="w-full overflow-hidden shadow-sm">
       
       {/* =========================================================================
-          1. TOP DYNAMIC PRODUCT NAME MARQUEE (SCROLLS FROM LEFT TO RIGHT)
+          1. TOP DYNAMIC PRODUCT NAME MARQUEE (SLOW, SMOOTH, LEFT TO RIGHT)
           ========================================================================= */}
       <div 
-        className="w-full bg-navy-950 text-gold-300 py-2.5 border-y border-gold-400/20 overflow-hidden relative shadow-inner"
+        className="w-full bg-navy-950 text-gold-300 py-2.5 border-y border-gold-400/20 overflow-hidden relative shadow-inner group"
         title="Dynamic Product Stream • Left to Right"
       >
         <div className="animate-marquee-ltr text-xs sm:text-sm font-semibold tracking-wide flex items-center">
           {/* Repeat twice for continuous loop */}
-          {[...productNames, ...productNames].map((name, idx) => (
-            <span key={idx} className="inline-flex items-center mx-4 whitespace-nowrap hover:text-white transition-colors">
-              <span className="text-gold-400/80 mr-2 text-[10px]">✦</span>
-              <span>{name}</span>
-            </span>
+          {[...topProducts, ...topProducts].map((item, idx) => (
+            <Link
+              key={idx}
+              to={`/product/${item.id}`}
+              className="inline-flex items-center mx-4 whitespace-nowrap hover:text-white hover:underline transition-colors cursor-pointer group"
+            >
+              <span className="text-gold-400/80 mr-2 text-[10px] group-hover:text-gold-300">✦</span>
+              <span>{item.name}</span>
+            </Link>
           ))}
         </div>
       </div>
 
       {/* =========================================================================
-          2. PIC 7 WELCOME HERO BOX (FULL WIDTH, AUTO-SCROLLING HORIZONTALLY)
+          2. PIC 7 WELCOME HERO BOX (100% SCREEN WIDTH, AUTOMATIC HORIZONTAL SLIDER)
           ========================================================================= */}
-      <div className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
-        <div 
-          className="relative bg-gradient-to-r from-[#fefbf6] via-[#faf6ee] to-[#f7eedf] rounded-2xl sm:rounded-3xl border border-amber-200/90 shadow-lg overflow-hidden transition-all duration-500"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          {/* Subtle decorative background watermarks */}
-          <div className="absolute top-0 right-1/4 w-80 h-80 bg-gold-200/15 rounded-full blur-3xl pointer-events-none"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-royal/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="w-full bg-gradient-to-r from-[#fefbf6] via-[#faf6ee] to-[#f7eedf] border-b border-amber-200/90 relative overflow-hidden transition-all duration-700">
+        
+        {/* Subtle decorative background watermarks */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-gold-200/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-royal/5 rounded-full blur-3xl pointer-events-none"></div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-10 lg:p-12 relative z-10">
+        {/* Inner Content Grid */}
+        <div className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
+          <div 
+            key={currentSlide}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-8 sm:py-12 lg:py-14 relative z-10 animate-fade-in"
+          >
             
             {/* Left Side: Welcome Greeting & Information */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
@@ -271,21 +280,22 @@ export default function WelcomeHeroSlider() {
 
             </div>
 
-            {/* Right Side: Showcase Product Cards matching Pic 7 */}
+            {/* Right Side: Authentic AI Product Showcase Cards */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-lg lg:max-w-none">
                 
                 {/* 2-Column Product Jars / Dishes matching Pic 7 */}
                 <div className="grid grid-cols-2 gap-4">
                   {activeSlide.products.map((prod, idx) => (
-                    <div 
+                    <Link 
                       key={idx}
-                      className="bg-white rounded-2xl border border-amber-200/80 shadow-md overflow-hidden flex flex-col group hover:shadow-xl transition-all duration-300"
+                      to={`/product/${prod.id}`}
+                      className="bg-white rounded-2xl border border-amber-200/80 shadow-md overflow-hidden flex flex-col group hover:shadow-xl hover:border-gold-400 transition-all duration-300 block text-left"
                     >
-                      {/* Product Image Section with official logo badge (Pic 5 match) */}
+                      {/* Product Image Section */}
                       <div className="relative aspect-square w-full overflow-hidden bg-slate-50 border-b border-slate-100">
                         <img 
-                          src={prod.image}
+                          src={prod.image.startsWith('http') ? prod.image : `${prod.image}?v=2`}
                           alt={prod.name}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           onError={(e) => {
@@ -298,15 +308,6 @@ export default function WelcomeHeroSlider() {
                           <span className="px-2 py-0.5 rounded bg-white/95 text-[10px] font-bold text-navy-950 tracking-wide uppercase shadow-xs">
                             {prod.badge}
                           </span>
-                        </div>
-
-                        {/* Official Brand Logo Badge in Image Section (Pic 5 match) */}
-                        <div className="absolute top-2.5 right-2.5 bg-white/95 rounded-md p-1 shadow-sm border border-slate-200/70">
-                          <img 
-                            src="/logo.jpg" 
-                            alt="Narayan-Varchas" 
-                            className="h-5 w-auto object-contain"
-                          />
                         </div>
 
                         {/* Bottom Tag */}
@@ -325,20 +326,17 @@ export default function WelcomeHeroSlider() {
                         
                         <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
                           <span className="font-bold text-navy-950">Catalogue Item</span>
-                          <Link 
-                            to="/catalogue"
-                            className="font-bold text-royal hover:underline flex items-center gap-1"
-                          >
-                            <span>View</span>
-                            <ArrowRight className="w-3 h-3" />
-                          </Link>
+                          <span className="font-bold text-royal group-hover:underline flex items-center gap-1">
+                            <span>View Info</span>
+                            <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                          </span>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
 
-                {/* Subtle reassurance footer chip */}
+                {/* Reassurance footer chip */}
                 <div className="mt-3 bg-white/80 backdrop-blur-sm rounded-xl p-2.5 border border-amber-200/80 flex items-center justify-center gap-3 text-xs text-navy-950 font-medium">
                   <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>Freshly Prepared & Sealed Hygienically • Hyderabad Facility</span>
@@ -348,9 +346,11 @@ export default function WelcomeHeroSlider() {
             </div>
 
           </div>
+        </div>
 
-          {/* Slider Controls Bar (Dots & Next/Prev) */}
-          <div className="px-6 sm:px-12 pb-5 pt-1 flex items-center justify-between border-t border-amber-200/60 bg-amber-50/40">
+        {/* Slider Controls Bar (Dots & Next/Prev) */}
+        <div className="w-full border-t border-amber-200/60 bg-amber-50/40">
+          <div className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12 py-3 flex items-center justify-between">
             {/* Dots */}
             <div className="flex items-center gap-2">
               {slides.map((_, dotIdx) => (
@@ -388,24 +388,28 @@ export default function WelcomeHeroSlider() {
               </button>
             </div>
           </div>
-
         </div>
+
       </div>
 
       {/* =========================================================================
-          3. BOTTOM DYNAMIC PRODUCT NAME MARQUEE (SCROLLS FROM RIGHT TO LEFT)
+          3. BOTTOM DYNAMIC PRODUCT NAME MARQUEE (SLOW, SMOOTH, RIGHT TO LEFT)
           ========================================================================= */}
       <div 
-        className="w-full bg-amber-100/90 text-navy-950 py-2.5 border-y border-amber-300/60 overflow-hidden relative shadow-xs"
+        className="w-full bg-amber-100/90 text-navy-950 py-2.5 border-b border-amber-300/60 overflow-hidden relative shadow-xs group"
         title="Dynamic Product Stream • Right to Left"
       >
         <div className="animate-marquee-rtl text-xs sm:text-sm font-semibold tracking-wide flex items-center">
           {/* Repeat twice for continuous loop */}
-          {[...reversedNames, ...reversedNames].map((name, idx) => (
-            <span key={idx} className="inline-flex items-center mx-4 whitespace-nowrap hover:text-royal transition-colors">
-              <span className="text-amber-600 mr-2 text-[10px]">★</span>
-              <span>{name}</span>
-            </span>
+          {[...bottomProducts, ...bottomProducts].map((item, idx) => (
+            <Link
+              key={idx}
+              to={`/product/${item.id}`}
+              className="inline-flex items-center mx-4 whitespace-nowrap hover:text-royal hover:underline transition-colors cursor-pointer group"
+            >
+              <span className="text-amber-600 mr-2 text-[10px] group-hover:text-royal">★</span>
+              <span>{item.name}</span>
+            </Link>
           ))}
         </div>
       </div>

@@ -29,7 +29,7 @@ export default function HomePage() {
     <div className="space-y-12 sm:space-y-16 pb-16">
       
       {/* 1. WELCOME HERO BOX & DUAL DYNAMIC PRODUCT NAME TICKERS (Matches Pic 7 Reference) */}
-      <section className="pt-2">
+      <section className="w-full">
         <WelcomeHeroSlider />
       </section>
 
@@ -350,7 +350,7 @@ export default function HomePage() {
           >
             <div className="aspect-[4/3] overflow-hidden bg-slate-100">
               <img
-                src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80"
+                src="/products/red-gravy-base.jpg?v=2"
                 alt="Everyday Cooking"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -367,7 +367,7 @@ export default function HomePage() {
           >
             <div className="aspect-[4/3] overflow-hidden bg-slate-100">
               <img
-                src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80"
+                src="/products/avakaya-mango-pickle.jpg?v=2"
                 alt="Traditional Meals"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -384,7 +384,7 @@ export default function HomePage() {
           >
             <div className="aspect-[4/3] overflow-hidden bg-slate-100">
               <img
-                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80"
+                src="/products/pesarattu-mix.jpg?v=2"
                 alt="Quick & Healthy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -401,7 +401,7 @@ export default function HomePage() {
           >
             <div className="aspect-[4/3] overflow-hidden bg-slate-100">
               <img
-                src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=600&q=80"
+                src="/products/tandoori-marinate.jpg?v=2"
                 alt="Special Occasions"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />

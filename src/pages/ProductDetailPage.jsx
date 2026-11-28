@@ -73,7 +73,7 @@ export default function ProductDetailPage() {
             
             <div className="relative aspect-square rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 shadow-inner flex items-center justify-center p-4">
               <img
-                src={product.image}
+                src={product.image ? (product.image.startsWith('http') ? product.image : `${product.image}?v=2`) : 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80'}
                 alt={product.name}
                 onError={(e) => {
                   e.currentTarget.onerror = null;
@@ -92,18 +92,6 @@ export default function ProductDetailPage() {
                   Featured Product
                 </div>
               )}
-
-              {/* Official Brand Seal in Image Section */}
-              <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-lg shadow-md border border-slate-200/90 flex items-center gap-2 z-10">
-                <img
-                  src="/logo.jpg"
-                  alt="Narayan-Varchas"
-                  className="h-6 w-auto object-contain rounded"
-                />
-                <span className="text-xs font-bold text-navy-950 tracking-wider uppercase font-serif">
-                  Narayan-Varchas
-                </span>
-              </div>
             </div>
 
             {/* Quality Badges Bar (Matches reference layout icons) */}

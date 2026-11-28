@@ -8,17 +8,17 @@ export default function ProductCard({ product, showCategory = true }) {
   return (
     <div className="group bg-white rounded-xl border border-slate-200/90 hover:border-gold-400 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden">
       
-      {/* Product Image Area with Official Company Branding (Pic 5 reference) */}
-      <div className="relative aspect-square overflow-hidden bg-gradient-to-b from-slate-50 to-slate-100/60 border-b border-slate-100 flex items-center justify-center p-3">
+      {/* Product Image Area */}
+      <div className="relative aspect-square overflow-hidden bg-slate-100 border-b border-slate-100">
         <img
-          src={product.image}
+          src={product.image ? (product.image.startsWith('http') ? product.image : `${product.image}?v=2`) : DEFAULT_FALLBACK_IMAGE}
           alt={product.name}
           loading="lazy"
           onError={(e) => {
             e.currentTarget.onerror = null;
             e.currentTarget.src = DEFAULT_FALLBACK_IMAGE;
           }}
-          className="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
 
         {/* Category Tag */}
@@ -34,18 +34,6 @@ export default function ProductCard({ product, showCategory = true }) {
             Featured
           </span>
         )}
-
-        {/* Official Company Logo Brand Seal in Image Section (As shown in Pic 5) */}
-        <div className="absolute bottom-2.5 left-2.5 bg-white/95 backdrop-blur-md px-2 py-1 rounded-md shadow-md border border-slate-200/80 flex items-center gap-1.5 z-10 transition-transform group-hover:scale-105">
-          <img
-            src="/logo.jpg"
-            alt="Narayan-Varchas"
-            className="h-4.5 w-auto object-contain rounded-[2px]"
-          />
-          <span className="text-[10px] font-bold text-navy-950 tracking-wider uppercase font-serif">
-            Narayan-Varchas
-          </span>
-        </div>
       </div>
 
       {/* Card Content Area */}
