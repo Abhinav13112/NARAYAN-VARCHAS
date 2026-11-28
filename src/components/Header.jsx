@@ -27,7 +27,7 @@ export default function Header() {
     <header className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
       {/* Top Utility Announcement Bar */}
       <div className="bg-navy-950 text-slate-200 text-xs py-1.5 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+        <div className="max-w-[1720px] w-full mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
           <div className="flex items-center gap-2 text-slate-300">
             <span className="inline-block w-2 h-2 rounded-full bg-gold-400"></span>
             <span>Welcome to <strong>{COMPANY_INFO.name}</strong></span>
@@ -54,7 +54,7 @@ export default function Header() {
       </div>
 
       {/* Main Header Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <div className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12 py-3">
         <div className="flex items-center justify-between gap-4 md:gap-8">
           
           {/* Logo and Brand Identity */}
@@ -157,7 +157,7 @@ export default function Header() {
 
       {/* Secondary Navigation Bar (Exact layout from reference) */}
       <nav className="border-t border-slate-200 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
           <div className="flex items-center justify-between overflow-x-auto scrollbar-none py-1">
             
             <div className="flex items-center gap-1 sm:gap-2 shrink-0 py-1">

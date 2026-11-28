@@ -49,7 +49,7 @@ export default function ProductDetailPage() {
   const whatsappUrl = createWhatsAppUrl(COMPANY_INFO.defaultWhatsApp, whatsappMessage);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+    <div className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12 py-8 space-y-12">
       
       {/* Breadcrumb Navigation */}
       <nav className="flex items-center gap-2 text-xs text-slate-500">
@@ -88,10 +88,22 @@ export default function ProductDetailPage() {
               </div>
 
               {product.isFeatured && (
-                <div className="absolute top-4 right-4 bg-gold-400 text-navy-950 font-bold text-xs px-2.5 py-1 rounded shadow-sm">
+                <div className="absolute top-4 right-4 bg-gold-400 text-navy-950 font-bold text-xs px-2.5 py-1 rounded shadow-sm z-10">
                   Featured Product
                 </div>
               )}
+
+              {/* Official Brand Seal in Image Section */}
+              <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-lg shadow-md border border-slate-200/90 flex items-center gap-2 z-10">
+                <img
+                  src="/logo.jpg"
+                  alt="Narayan-Varchas"
+                  className="h-6 w-auto object-contain rounded"
+                />
+                <span className="text-xs font-bold text-navy-950 tracking-wider uppercase font-serif">
+                  Narayan-Varchas
+                </span>
+              </div>
             </div>
 
             {/* Quality Badges Bar (Matches reference layout icons) */}

@@ -21,7 +21,7 @@ export default function StoryPage() {
       
       {/* 1. HERO SECTION (Matches Reference Screenshot `media_1795269185069_561dc2e7.jpg`) */}
       <section className="relative overflow-hidden bg-gradient-to-b from-amber-50/70 via-cream-100 to-[#faf8f5] border-b border-slate-200/80 pt-10 sm:pt-14 pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
@@ -101,7 +101,7 @@ export default function StoryPage() {
       </section>
 
       {/* 2. A JOURNEY ROOTED IN TRADITION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
         <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-12 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
@@ -145,7 +145,7 @@ export default function StoryPage() {
       </section>
 
       {/* 3. WHAT WE STAND FOR */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="text-xs font-bold uppercase tracking-wider text-gold-600">
             Our Core Values
@@ -202,7 +202,7 @@ export default function StoryPage() {
       </section>
 
       {/* 4. FROM FARM TO YOUR KITCHEN (PROCESS STEPS) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
         <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-xs font-bold uppercase tracking-wider text-gold-600">
@@ -257,7 +257,7 @@ export default function StoryPage() {
       </section>
 
       {/* 5. CTA SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12 text-center">
         <div className="bg-navy-950 text-white rounded-2xl p-8 sm:p-12 shadow-xl space-y-6">
           <h2 className="text-2xl sm:text-3xl font-serif font-bold">
             Experience the True Taste of Narayan-Varchas

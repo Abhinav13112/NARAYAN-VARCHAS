@@ -19,203 +19,115 @@ import {
 } from 'lucide-react';
 import { COMPANY_INFO, CATEGORIES, getFeaturedProducts } from '../data/products';
 import ProductCard from '../components/ProductCard';
+import WelcomeHeroSlider from '../components/WelcomeHeroSlider';
 import { createWhatsAppUrl } from '../lib/whatsapp';
 
 export default function HomePage() {
   const featuredProducts = getFeaturedProducts().slice(0, 8);
 
   return (
-    <div className="space-y-16 sm:space-y-24 pb-16">
+    <div className="space-y-12 sm:space-y-16 pb-16">
       
-      {/* 1. HERO SECTION (Exact visual language from Reference Screenshot) */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-amber-50/70 via-cream-100 to-[#faf8f5] border-b border-slate-200/80 pt-10 sm:pt-14 pb-16">
-        
-        {/* Subtle decorative background pattern elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gold-200/20 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-royal/5 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20"></div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-100/90 border border-gold-300 text-navy-950 text-xs font-bold tracking-wide uppercase shadow-sm">
-                <Sparkles className="w-3.5 h-3.5 text-gold-600" />
-                <span>Traditional Recipes • Premium Ingredients</span>
-              </div>
-
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-extrabold text-navy-950 leading-[1.15] tracking-tight">
-                Authentic <span className="text-royal">Indian Flavours</span>, <br className="hidden sm:inline" />
-                Now at Your Doorstep
-              </h1>
-
-              <p className="text-base sm:text-lg text-slate-600 font-medium max-w-xl mx-auto lg:mx-0">
-                Pickles • Gravies • Marinades • Premixes • Fresh Batters
-              </p>
-
-              <p className="text-sm text-slate-500 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Welcome to <strong>{COMPANY_INFO.name}</strong>. We craft heritage Indian recipes using authentic spices, fresh ingredients, and time-honored culinary traditions for homes and culinary businesses.
-              </p>
-
-              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4">
-                <Link
-                  to="/catalogue"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-gold-400 hover:bg-gold-500 text-navy-950 font-bold rounded-xl shadow-md hover:shadow-lg transition-all duration-200 text-sm sm:text-base group"
-                >
-                  <span>Explore Catalogue</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-
-                <a
-                  href={createWhatsAppUrl(COMPANY_INFO.defaultWhatsApp, "Hello Narayan-Varchas Foods, I would like to explore your product catalogue and place an enquiry.")}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white border border-slate-300 hover:border-slate-400 text-navy-950 font-semibold rounded-xl shadow-sm hover:bg-slate-50 transition-all text-sm sm:text-base"
-                >
-                  <MessageCircle className="w-4 h-4 text-[#25D366] fill-[#25D366]" />
-                  <span>WhatsApp Enquiry</span>
-                </a>
-              </div>
-
-            </div>
-
-            {/* Right Hero Image Composition */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto max-w-md lg:max-w-none">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white">
-                  <img
-                    src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=900&q=80"
-                    alt="Authentic Indian Traditional Food Products"
-                    className="w-full h-80 sm:h-96 object-cover transform hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4 text-white p-3">
-                    <p className="text-xs uppercase font-bold text-gold-300 tracking-wider">Heritage Culinary Craft</p>
-                    <p className="font-serif text-lg font-bold">Narayan-Varchas Signature Foods</p>
-                    <p className="text-xs text-slate-200">Taste the authentic purity in every spoon</p>
-                  </div>
-                </div>
-
-                {/* Floating badge */}
-                <div className="absolute -bottom-4 -left-4 sm:-left-6 bg-white rounded-xl shadow-xl p-3 border border-slate-100 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-gold-100 flex items-center justify-center text-gold-700">
-                    <Award className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-navy-950">75+ Products</p>
-                    <p className="text-[10px] text-slate-500">7 Core Food Categories</p>
-                  </div>
-                </div>
-
-                <div className="absolute -top-4 -right-4 sm:-right-6 bg-white rounded-xl shadow-xl p-3 border border-slate-100 flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span className="text-xs font-bold text-navy-950">100% Purity Guaranteed</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Key Value Points Bar directly below Hero (Matches Reference) */}
-          <div className="mt-14 pt-8 border-t border-slate-200/80 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="flex flex-col items-center">
-              <span className="font-serif text-2xl sm:text-3xl font-extrabold text-navy-950">75+</span>
-              <span className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Premium Food Products</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="font-serif text-2xl sm:text-3xl font-extrabold text-navy-950">7</span>
-              <span className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Authentic Categories</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="font-serif text-2xl sm:text-3xl font-extrabold text-navy-950">Hyderabad</span>
-              <span className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Telangana & Pan-India</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="font-serif text-2xl sm:text-3xl font-extrabold text-navy-950">100%</span>
-              <span className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Authentic & Hygienic</span>
-            </div>
-          </div>
-
-        </div>
+      {/* 1. WELCOME HERO BOX & DUAL DYNAMIC PRODUCT NAME TICKERS (Matches Pic 7 Reference) */}
+      <section className="pt-2">
+        <WelcomeHeroSlider />
       </section>
 
       {/* 2. QUALITY AT EVERY STEP (Matches Reference Screenshot Layout) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
         <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Process Flow */}
             <div className="lg:col-span-8 space-y-6">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-navy-950">
-                  Quality at every step
+                <span className="text-xs font-bold uppercase tracking-wider text-gold-600">
+                  Our Culinary Standards
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-navy-950 mt-1">
+                  Quality at Every Step
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                  From the finest ingredients to your kitchen, we ensure purity, taste, and tradition.
+                  How we craft authentic, safe, and hygienic food for homes and businesses
                 </p>
               </div>
 
-              {/* 5-Step Process */}
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 pt-2">
-                <div className="flex flex-col items-center text-center p-3 rounded-xl bg-slate-50 border border-slate-100">
-                  <div className="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2">
+              {/* 4 Steps */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-between">
+                  <div className="w-10 h-10 rounded-lg bg-gold-100 text-gold-700 flex items-center justify-center mb-3">
                     <Leaf className="w-5 h-5" />
                   </div>
-                  <span className="text-xs font-bold text-slate-800 leading-tight">Sourced from Trusted Farmers</span>
+                  <div>
+                    <span className="text-[10px] font-bold text-gold-600 uppercase">Step 01</span>
+                    <h3 className="font-bold text-navy-950 text-sm mt-0.5">Sourcing</h3>
+                    <p className="text-xs text-slate-500 mt-1">Fresh ingredients from regional farmers</p>
+                  </div>
                 </div>
 
-                <div className="flex flex-col items-center text-center p-3 rounded-xl bg-slate-50 border border-slate-100">
-                  <div className="w-10 h-10 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center mb-2">
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-between">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center mb-3">
+                    <Award className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold text-emerald-600 uppercase">Step 02</span>
+                    <h3 className="font-bold text-navy-950 text-sm mt-0.5">Grading</h3>
+                    <p className="text-xs text-slate-500 mt-1">Strict quality and sorting check</p>
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-between">
+                  <div className="w-10 h-10 rounded-lg bg-blue-100 text-royal flex items-center justify-center mb-3">
                     <ChefHat className="w-5 h-5" />
                   </div>
-                  <span className="text-xs font-bold text-slate-800 leading-tight">Traditional Recipes</span>
-                </div>
-
-                <div className="flex flex-col items-center text-center p-3 rounded-xl bg-slate-50 border border-slate-100">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 text-royal flex items-center justify-center mb-2">
-                    <ShieldCheck className="w-5 h-5" />
+                  <div>
+                    <span className="text-[10px] font-bold text-royal uppercase">Step 03</span>
+                    <h3 className="font-bold text-navy-950 text-sm mt-0.5">Crafting</h3>
+                    <p className="text-xs text-slate-500 mt-1">Authentic traditional recipes</p>
                   </div>
-                  <span className="text-xs font-bold text-slate-800 leading-tight">Hygienic Processing</span>
                 </div>
 
-                <div className="flex flex-col items-center text-center p-3 rounded-xl bg-slate-50 border border-slate-100">
-                  <div className="w-10 h-10 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center mb-2">
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-between">
+                  <div className="w-10 h-10 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center mb-3">
                     <Package className="w-5 h-5" />
                   </div>
-                  <span className="text-xs font-bold text-slate-800 leading-tight">Quality Packaging</span>
+                  <div>
+                    <span className="text-[10px] font-bold text-amber-600 uppercase">Step 04</span>
+                    <h3 className="font-bold text-navy-950 text-sm mt-0.5">Sealing</h3>
+                    <p className="text-xs text-slate-500 mt-1">Aroma & freshness preserved</p>
+                  </div>
                 </div>
 
-                <div className="col-span-2 sm:col-span-1 flex flex-col items-center text-center p-3 rounded-xl bg-slate-50 border border-slate-100">
-                  <div className="w-10 h-10 rounded-full bg-gold-50 text-gold-600 flex items-center justify-center mb-2">
-                    <Truck className="w-5 h-5" />
-                  </div>
-                  <span className="text-xs font-bold text-slate-800 leading-tight">Delivered Fresh to You</span>
-                </div>
               </div>
             </div>
 
-            {/* Right Card: Same Authentic Taste, Every Time */}
-            <div className="lg:col-span-4 bg-gradient-to-br from-cream-100 to-amber-50/50 p-6 rounded-xl border border-gold-200">
-              <h3 className="font-serif font-bold text-lg text-navy-950 mb-3">
-                Same Authentic Taste, Every Time
+            {/* Right Checklist Card */}
+            <div className="lg:col-span-4 bg-gradient-to-br from-cream-100 to-amber-50 rounded-xl p-6 border border-amber-200/60">
+              <h3 className="font-serif font-bold text-navy-950 text-base mb-3 flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-emerald-600" />
+                <span>Our Quality Promise</span>
               </h3>
               <ul className="space-y-2.5 text-xs text-slate-700">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>No Artificial Preservatives or Fillers</span>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>100% authentic regional Indian spices</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Hygienically Prepared in Clean Environments</span>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>No harmful artificial flavours or chemical colours</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Time-tested Traditional Indian Recipes</span>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>Pure cold-pressed oils used in pickles & podis</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Premium Quality Spices & Cold-Pressed Oils</span>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>Hygienic processing facility in Hyderabad</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>Pan-India retail & commercial supply network</span>
                 </li>
               </ul>
             </div>
@@ -225,12 +137,12 @@ export default function HomePage() {
       </section>
 
       {/* Thin Horizontal Divider Line */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
         <div className="w-full h-px bg-slate-200/80"></div>
       </div>
 
       {/* 3. SHOP BY CATEGORY SECTION (Matches Reference Screenshot Layout) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3 mb-8">
           <div>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-navy-950">
@@ -249,7 +161,7 @@ export default function HomePage() {
           </Link>
         </div>
 
-        {/* Categories Grid - 7 Categories */}
+        {/* Categories Grid - 7 Categories across full width */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4">
           {CATEGORIES.map((cat) => (
             <Link
@@ -277,12 +189,12 @@ export default function HomePage() {
       </section>
 
       {/* Thin Horizontal Divider Line */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
         <div className="w-full h-px bg-slate-200/80"></div>
       </div>
 
       {/* 4. FEATURED PRODUCTS SHOWCASE */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3 mb-8">
           <div>
             <div className="inline-flex items-center gap-1.5 text-xs font-bold text-gold-600 uppercase tracking-wider mb-1">
@@ -306,7 +218,7 @@ export default function HomePage() {
         </div>
 
         {/* Product Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
           {featuredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -324,12 +236,12 @@ export default function HomePage() {
       </section>
 
       {/* Thin Horizontal Divider Line */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
         <div className="w-full h-px bg-slate-200/80"></div>
       </div>
 
       {/* 5. COMPANY STORY / BRAND SECTION (Matches Reference Screenshot Layout) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
         <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             
@@ -416,12 +328,12 @@ export default function HomePage() {
       </section>
 
       {/* Thin Horizontal Divider Line */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
         <div className="w-full h-px bg-slate-200/80"></div>
       </div>
 
       {/* 6. READY FOR EVERY OCCASION (Matches Reference Screenshot Layout) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-navy-950">
             Ready for Every Occasion
@@ -503,12 +415,12 @@ export default function HomePage() {
       </section>
 
       {/* Thin Horizontal Divider Line */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
         <div className="w-full h-px bg-slate-200/80"></div>
       </div>
 
       {/* 7. CONTACT & DIRECT ENQUIRY SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
         <div className="bg-gradient-to-r from-navy-950 via-navy-900 to-royal rounded-2xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             

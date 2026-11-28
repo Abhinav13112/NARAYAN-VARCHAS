@@ -80,37 +80,40 @@ export default function ContactPage() {
       
       {/* 1. HERO HEADER (Matches Reference Screenshot `media_1795269180640_687d434b.jpg`) */}
       <section className="relative overflow-hidden bg-gradient-to-b from-amber-50/70 via-cream-100 to-[#faf8f5] border-b border-slate-200/80 pt-10 sm:pt-14 pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
-          <span className="inline-block px-3 py-1 bg-gold-100 border border-gold-300 text-navy-950 text-xs font-bold uppercase tracking-wider rounded-full mb-3">
-            Business & Partnerships
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-extrabold text-navy-950 leading-tight">
-            Let's Bring Authentic Flavours <br />
-            <span className="text-royal">to More Homes</span>
-          </h1>
-          <p className="text-sm sm:text-base text-slate-600 mt-4 leading-relaxed">
-            Partner with <strong>{COMPANY_INFO.name}</strong> for authentic, high-quality Indian food products. We work with retailers, distributors, restaurants, cloud kitchens, and supermarkets across India.
-          </p>
+        <div className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12 text-center">
+          <div className="max-w-3xl mx-auto">
+            <span className="inline-block px-3 py-1 bg-gold-100 border border-gold-300 text-navy-950 text-xs font-bold uppercase tracking-wider rounded-full mb-3">
+              Business & Partnerships
+            </span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-extrabold text-navy-950 leading-tight">
+              Let's Bring Authentic Flavours <br />
+              <span className="text-royal">to More Homes</span>
+            </h1>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-slate-600">
-            <span className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
-              <ShieldCheck className="w-3.5 h-3.5 text-royal" />
-              <span>Wide Product Range (75 Products)</span>
-            </span>
-            <span className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
-              <ShieldCheck className="w-3.5 h-3.5 text-gold-600" />
-              <span>Competitive Trade Pricing</span>
-            </span>
-            <span className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              <span>Consistent Supply</span>
-            </span>
+            <p className="text-sm sm:text-base text-slate-600 mt-4 leading-relaxed">
+              Partner with <strong>{COMPANY_INFO.name}</strong> for authentic, high-quality Indian food products. We work with retailers, distributors, restaurants, cloud kitchens, and supermarkets across India.
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-slate-600">
+              <span className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
+                <ShieldCheck className="w-3.5 h-3.5 text-royal" />
+                <span>Wide Product Range (75 Products)</span>
+              </span>
+              <span className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
+                <ShieldCheck className="w-3.5 h-3.5 text-gold-600" />
+                <span>Competitive Trade Pricing</span>
+              </span>
+              <span className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                <span>Consistent Supply</span>
+              </span>
+            </div>
           </div>
         </div>
       </section>
 
       {/* 2. CONTACT DETAILS & DIRECT ENQUIRY FORM */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Official Contact Cards */}
@@ -352,7 +355,7 @@ export default function ContactPage() {
       </section>
 
       {/* 3. BUSINESS SEGMENTS (Matches Reference Screenshot `media_1795269180640_687d434b.jpg`) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="text-xs font-bold uppercase tracking-wider text-gold-600">
             Wholesale & Commercial Supply
